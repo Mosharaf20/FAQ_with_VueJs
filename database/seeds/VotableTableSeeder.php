@@ -1,0 +1,33 @@
+<?php
+
+use Illuminate\Database\Seeder;
+
+class VotableTableSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+       \DB::table('voteables')->delete();
+       $users = \App\User::all();
+       $numberOrUsers = $users->count();
+       $votes = [1,-1];
+
+       foreach (\App\Question::all() as $question){
+           for ($i=0; $i<rand(1,$numberOrUsers); $i++){
+               $user = $users[$i];
+               $user->voteQuestion($question, $votes[rand(0,1)]);
+           }
+       }
+
+        foreach (\App\Answer::all() as $answer){
+            for ($i=0; $i<rand(1,$numberOrUsers); $i++){
+                $user = $users[$i];
+                $user->voteAnswer($answer, $votes[rand(0,1)]);
+            }
+        }
+    }
+}

@@ -1,0 +1,32 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/solid.scss";
+@import "~@fortawesome/fontawesome-free/scss/brands.scss";
+
+.icon a{
+    text-decoration: none;
+    color: #646464;
+}
+
+.icon a.voted{
+    color: #124764;
+}
+
+.icon a.accepted{
+    color: #1d643b;
+}
+.icon a:hover{
+    color: #3f9ae5;
+}
+
+.icon a.favourite{
+    color: yellow;
+}
